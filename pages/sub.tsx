@@ -1,9 +1,9 @@
 import { GetServerSideProps, InferGetServerSidePropsType } from 'next'
 import Head from 'next/head'
-import Link from 'next/link';
+import Link from 'next/link'
 import {sleep} from '@/lib/sleep';
 
-export default function Home(
+export default function Sub(
   props: InferGetServerSidePropsType<typeof getServerSideProps>
 ) {
   return (
@@ -26,7 +26,7 @@ export const getServerSideProps = (async () => {
   await sleep(3 * 1000);
   return {
     props: {
-      data: 'Home',
+      data: 'Sub',
     },
   }
 }) satisfies GetServerSideProps
