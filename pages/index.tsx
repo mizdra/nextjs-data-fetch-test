@@ -1,11 +1,12 @@
 import { GetServerSideProps, InferGetServerSidePropsType } from 'next'
 import Head from 'next/head'
 import Link from 'next/link';
-import {sleep} from '@/lib/sleep';
+import {sleep, getEnvironmentName} from '@/lib/util';
 
 export default function Home(
   props: InferGetServerSidePropsType<typeof getServerSideProps>
 ) {
+  console.log('Home component is rendered by ' + getEnvironmentName())
   return (
     <>
       <Head>
@@ -23,6 +24,7 @@ export default function Home(
 }
 
 export const getServerSideProps = (async () => {
+  console.log('Home\'s getServerSideProps is called by ' + getEnvironmentName())
   await sleep(3 * 1000);
   return {
     props: {
